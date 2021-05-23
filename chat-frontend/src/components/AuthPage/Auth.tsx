@@ -8,7 +8,6 @@ export const AuthPage = () => {
     return(
         <div className="root">
             <Formik onSubmit={(value,event) => {
-               
                 const data = {
                     login: value.login,
                     password: value.password
@@ -36,6 +35,7 @@ export const AuthPage = () => {
                      <Field className="input" placeholder="Пароль" type="password" name={'password'} />
                      <br />
                      <button className="btn_submit" type='submit'>Войти</button>
+                     <div style={{color: 'white'}} onClick={() =>  history.push('rega') }>Регистрация</div>
                     </Form>
                  )
              }}

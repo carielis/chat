@@ -2,13 +2,14 @@ import { Field, Form, Formik } from "formik"
 import { useState } from "react"
 import { getApiUrl } from "../../shared/api"
 import "./style.css"
+import {useHistory} from 'react-router-dom'
 export const RegPage = () => {
     const [status, setStatus] = useState('')
     const colorPicker = status === "Имя занято" ? "red" : status === "Регистрация успешна" ? "#00ff2a" : "red"
+    const history = useHistory()
     return(
         <div className="root">
             <Formik onSubmit={(value) => {
-               
                 const data = {
                     login: value.login,
                     password: value.password
@@ -21,6 +22,7 @@ export const RegPage = () => {
                     },
                   }).then(res => {
                     setStatus(res.status === 400 ? "Имя занято" : "Регистрация успешна")
+                   res.status === 201 && setTimeout(() => history.push('/login'), 1000)
                   }).catch(error => {
                       setStatus(`${error}`)
                   })
