@@ -1,0 +1,40 @@
+.chatRoot {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: wheat;
+  width: 500px;
+  height: 600px;
+  border-radius: 4px;
+  padding: 6px;
+}
+.content {
+  background-color: rgba(253, 253, 253, 0.281);
+  height: 520px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  word-break: break-all;
+}
+
+.inputMessage {
+  width: 390px;
+  height: 84px;
+  outline: none;
+  text-align: start;
+  resize: none;
+}
+.btnMessage {
+  height: 84px;
+  margin-top: 10px;
+
+  margin-left: 10px;
+}
+
+.boxInput {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,9 @@
+.App {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  background-image: url(./Assets/fon.jpeg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

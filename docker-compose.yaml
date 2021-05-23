@@ -1,0 +1,40 @@
+version: "3.8"
+
+services:
+  postgres:
+    container_name: postgres
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=secret
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=stage
+    ports:
+      - 5432:5432
+    networks:
+      - app-network
+
+  backend:
+    container_name: backend
+    build: ./nestjs_graphql_chat
+    depends_on:
+      - postgres
+    ports:
+      - 4000:4000
+      - 4001:4001
+    networks:
+      - app-network
+
+  frontend:
+    container_name: frontent
+    build: ./chat-frontend
+    depends_on:
+      - backend
+    ports:
+      - 3000:3000
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
