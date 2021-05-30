@@ -1,5 +1,4 @@
 import { MessageModule } from "./Message/message.module";
-/* eslint-disable prettier/prettier */
 import { UsersModule } from "./Users/users.module";
 import { Module } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
@@ -11,17 +10,17 @@ import { AuthModule } from "./Auth/auth.module";
   imports: [
     AuthModule,
     UsersModule,
-    MessageModule, 
+    MessageModule,
     TypeOrmModule.forRoot({
-        url: "postgres://postgres:secret@postgres:5432/stage",
-        type: "postgres",
+      url: "postgres://postgres:secret@postgres:5432/stage",
+      type: "postgres",
       // host: "localhost",
       // port: 5432,
       // username: "postgres",
       // password: "secret",
       // database: "stage",
-        autoLoadEntities: true,
-        synchronize: true,
+      autoLoadEntities: true,
+      synchronize: true,
     }),
   ],
   //controllers: [AppController],

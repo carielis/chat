@@ -1,10 +1,5 @@
-/* eslint-disable prettier/prettier */
-import { Repository } from "typeorm";
-import { Body, Controller, Get, Param, Post, UseGuards } from "@nestjs/common";
-import { InjectRepository } from "@nestjs/typeorm";
-import { UserEntity } from "src/Entity/user.entity";
+import { Body, Controller, Get, Post } from "@nestjs/common";
 import { UsersService } from "./users.service";
-import { JwtAuthGuard } from "src/Auth/jwt-auth.guard";
 
 @Controller("user")
 export class UsersController {
@@ -21,7 +16,7 @@ export class UsersController {
   // }
 
   @Post("create")
-  createUser(@Body() user: any) {
+  createUser(@Body() user: { login: string; password: string }) {
     return this.userService.createUser(user);
   }
 }

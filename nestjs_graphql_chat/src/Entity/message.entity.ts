@@ -1,17 +1,21 @@
-/* eslint-disable prettier/prettier */
-import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn } from "typeorm";
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  CreateDateColumn,
+} from "typeorm";
 
 @Entity()
 export class MessageEntity {
   @PrimaryGeneratedColumn("uuid")
-  messageId: string;
+  id: string;
 
   @CreateDateColumn()
   create_at: string;
 
   @Column()
-  text_message: string
+  text_message: string;
 
   @Column()
-  send_by: string
+  send_by: string;
 }
